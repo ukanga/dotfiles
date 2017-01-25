@@ -1,0 +1,51 @@
+! Xft
+Xft.dpi:                    180
+/* Xft.antialias:              false */
+/* Xft.rgba:                   rgb */
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+! Urxvt
+URxvt.shading:              30
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.transparent:          true
+URxvt.fading:               0
+URxvt.loginShell:           true
+URxvt.saveLines:            50
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+
+! Fonts
+urxvt*font: xft:Roboto Mono Medium for Powerline:pixelsize=24
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher,kuake,resize-font
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          google-chrome-stable
+
+! kuake
+URxvt.kuake.hotkey: F12
+
+! resize-font
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+#include ".config/base16-xresources/xresources/base16-oceanicnext-256.Xresources"
