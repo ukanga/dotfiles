@@ -1,7 +1,7 @@
 Dot files
 =========
 
-Config files for X11, TMUX and neofetch. I make use of base 16 colour themes.
+Config files for [Neo]VIM, X11, TMUX and neofetch. I make use of base 16 colour themes.
 
 Installation
 ============
