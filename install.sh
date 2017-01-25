@@ -8,7 +8,7 @@ mv ~/.config/neofetch ~/.config/neofetch.$TIMESTAMP.bak
 mv ~/.Xresources ~/.Xresources.$TIMESTAMP.bak
 mv ~/.tmux.conf ~/.tmux.conf.$TIMESTAMP.bak
 
-BASEDIR=$(dirname $0)
+BASEDIR=$(dirname $(realpath $0))
 
 git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources || (cd ~/.config/base16-xresources && git pull && cd -)
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell || (cd ~/.config/base16-shell && git pull && cd -)
