@@ -36,8 +36,8 @@ function neovim_install {
 
     # install
     mkdir -p ~/.config/nvim
-    ln $BASEDIR/config/nvim/init.vim ~/.config/nvim/init.vim
-    ln $BASEDIR/config/nvim/init.vim ~/.vimrc
+    ln -s $BASEDIR/config/nvim/init.vim ~/.config/nvim/init.vim
+    ln -s $BASEDIR/config/nvim/init.vim ~/.vimrc
 
     nvim +PlugInstall
 }
@@ -47,7 +47,7 @@ function tmux_install {
     mv ~/.tmux.conf ~/.tmux.conf.$TIMESTAMP.bak
     
     # install
-    ln $BASEDIR/tmux.conf ~/.tmux.conf
+    ln -s $BASEDIR/tmux.conf ~/.tmux.conf
 }
 
 function neofetch_install {
