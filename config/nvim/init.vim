@@ -12,3 +12,14 @@ endif
 
 " allow background image to be shown
 hi Normal ctermbg=None ctermfg=None
+
+filetype plugin indent on
+
+" show existing tab with 4 spaces width
+set tabstop=4
+
+" use 4 spaces width
+set shiftwidth=4
+
+" insert 4 spaes for a tab
+set expandtab
