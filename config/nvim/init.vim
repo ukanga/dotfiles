@@ -2,7 +2,37 @@ call plug#begin()
 
 Plug 'chriskempson/base16-vim'
 
+" autocompletion plugins
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+
 call plug#end()
+
+" deoplete
+set completeopt=longest,menuone,preview
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" close preview window when in no use
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 " base16 colourscheme
 if filereadable(expand("~/.vimrc_background"))
