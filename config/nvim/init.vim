@@ -11,6 +11,10 @@ Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
+" vim sessions`
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+
 call plug#end()
 
 " deoplete
