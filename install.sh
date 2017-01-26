@@ -29,6 +29,7 @@ function neovim_install {
     # backup
     mv ~/.config/neovim/ ~/.config/nvim/init.vim.$TIMESTAMP.bak
     mv ~/.vimrc ~/.vimrc.$TIMESTAMP.bak
+    mv ~/.vim ~/.vim.$TIMESTAMP.bak
     
     # installi vim-plug
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -38,6 +39,7 @@ function neovim_install {
     mkdir -p ~/.config/nvim
     ln -s $BASEDIR/config/nvim/init.vim ~/.config/nvim/init.vim
     ln -s $BASEDIR/config/nvim/init.vim ~/.vimrc
+    ln -s ~/.config/nvim ~/.vim
 
     nvim +PlugInstall
 }
