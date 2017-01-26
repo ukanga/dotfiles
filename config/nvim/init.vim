@@ -15,6 +15,8 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 
+Plug 'kien/ctrlp.vim'
+
 call plug#end()
 
 " deoplete
@@ -57,3 +59,5 @@ set shiftwidth=4
 
 " insert 4 spaes for a tab
 set expandtab
+
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
