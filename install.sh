@@ -1,33 +1,83 @@
 #!/bin/bash
 
+BASEDIR=$(dirname $(realpath $0))
 TIMESTAMP=`date '+%Y.%m.%d-%H:%M:%S'`
 
-# backup existing config
-mv ~/.config/i3 ~/.config/i3.$TIMESTAMP.bak
-mv ~/.config/neofetch ~/.config/neofetch.$TIMESTAMP.bak
-mv ~/.Xresources ~/.Xresources.$TIMESTAMP.bak
-mv ~/.tmux.conf ~/.tmux.conf.$TIMESTAMP.bak
-mv ~/.config/neovim/ ~/.config/nvim/init.vim.$TIMESTAMP.bak
-mv ~/.vimrc ~/.vimrc.$TIMESTAMP.bak
+function xresources_install {
+    # backup
+    mv ~/.Xresources ~/.Xresources.$TIMESTAMP.bak
 
+    # download base16-xresources
+    git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources || (cd ~/.config/base16-xresources && git pull && cd -)
 
-BASEDIR=$(dirname $(realpath $0))
+    # install .Xresources
+    ln $BASEDIR/Xresources ~/.Xresources
+}
 
-git clone https://github.com/chriskempson/base16-xresources.git ~/.config/base16-xresources || (cd ~/.config/base16-xresources && git pull && cd -)
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell || (cd ~/.config/base16-shell && git pull && cd -)
-git clone https://github.com/chriskempson/base16-i3.git ~/.config/base16-i3 || (cd ~/.config/base16-i3 && git pull && cd -)
+function i3_install {
+    # backup
+    mv ~/.config/i3 ~/.config/i3.$TIMESTAMP.bak
+    
+    # base16-i3
+    git clone https://github.com/chriskempson/base16-i3.git ~/.config/base16-i3 || (cd ~/.config/base16-i3 && git pull && cd -)
 
-ln -s $BASEDIR/config/i3 ~/.config/
-ln -s $BASEDIR/config/neofetch ~/.config/
-ln $BASEDIR/Xresources ~/.Xresources
-ln $BASEDIR/tmux.conf ~/.tmux.conf
+    # install
+    ln -s $BASEDIR/config/i3 ~/.config/
+}
 
-# neovim
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+function neovim_install {
+    # backup
+    mv ~/.config/neovim/ ~/.config/nvim/init.vim.$TIMESTAMP.bak
+    mv ~/.vimrc ~/.vimrc.$TIMESTAMP.bak
+    
+    # installi vim-plug
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-mkdir -p ~/.config/nvim
-ln $BASEDIR/config/nvim/init.vim ~/.config/nvim/init.vim
-ln $BASEDIR/config/nvim/init.vim ~/.vimrc
+    # install
+    mkdir -p ~/.config/nvim
+    ln $BASEDIR/config/nvim/init.vim ~/.config/nvim/init.vim
+    ln $BASEDIR/config/nvim/init.vim ~/.vimrc
 
-nvim +PlugInstall
+    nvim +PlugInstall
+}
+
+function tmux_install {
+    # backup
+    mv ~/.tmux.conf ~/.tmux.conf.$TIMESTAMP.bak
+    
+    # install
+    ln $BASEDIR/tmux.conf ~/.tmux.conf
+}
+
+function neofetch_install {
+    # backup
+    mv ~/.config/neofetch ~/.config/neofetch.$TIMESTAMP.bak
+    
+    # install
+    ln -s $BASEDIR/config/neofetch ~/.config/
+}
+
+function base16_shell_install {
+    # base16-shell
+    git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell || (cd ~/.config/base16-shell && git pull && cd -)
+}
+
+if [ $1 = 'shell' ]; then
+    base16_shell_install
+fi
+if [ $1 = 'neofetch' ]; then
+    neofetch_install
+fi
+if [ $1 = 'neovim' ]; then
+    neovim_install
+fi
+if [ $1 = 'tmux' ]; then
+    tmux_install
+fi
+if [ $1 = 'i3' ]; then
+    i3_install
+fi
+if [ $1 = 'xresources' ]; then
+    xresources_install
+fi
