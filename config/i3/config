@@ -137,6 +137,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+workspace 8 output DP1
+
 assign [class="Google-chrome"] $chrome
 assign [class="Slack"] $slack
 assign [class="Skype"] $skype
