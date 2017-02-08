@@ -21,6 +21,9 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'scrooloose/nerdtree'
 
+" rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 " deoplete
