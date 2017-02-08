@@ -17,6 +17,8 @@ Plug 'dhruvasagar/vim-prosession'
 
 Plug 'kien/ctrlp.vim'
 
+Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 " deoplete
