@@ -25,7 +25,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec dmenu_run
 
 # Print Screen
-bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Photos/screenshots/'
 
 # change focus
 bindsym $mod+j focus left
@@ -154,7 +154,7 @@ exec --no-startup-id dropbox start
 exec slack
 exec insync start
 exec ~/.local/bin/spotify
-exec nitrogen --random ~/Pictures/wallpapers --set-auto
+exec nitrogen --random ~/Photos/wallpapers --set-auto
 
 ## Base16 OceanicNext
 # Author: https://github.com/voronianski/oceanic-next-color-scheme
