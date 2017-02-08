@@ -24,6 +24,9 @@ Plug 'scrooloose/nerdtree'
 " rust
 Plug 'rust-lang/rust.vim'
 
+" comment
+Plug 'tpope/vim-commentary'
+
 call plug#end()
 
 " deoplete
