@@ -19,6 +19,8 @@ Plug 'kien/ctrlp.vim'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
 
 " deoplete
@@ -63,3 +65,7 @@ set shiftwidth=4
 set expandtab
 
 let g:ctrlp_custom_ignore = 'node_modules\|.git'
+
+let mapleader = ','
+map <leader>d :NERDTreeToggle<CR>
+map <leader>f :NERDTreeFind<CR>
