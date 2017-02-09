@@ -27,7 +27,7 @@ function i3_install {
 
 function neovim_install {
     # backup
-    mv ~/.config/neovim/ ~/.config/nvim/init.vim.$TIMESTAMP.bak
+    mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.$TIMESTAMP.bak
     mv ~/.vimrc ~/.vimrc.$TIMESTAMP.bak
     mv ~/.vim ~/.vim.$TIMESTAMP.bak
     
