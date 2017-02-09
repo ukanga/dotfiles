@@ -27,6 +27,10 @@ Plug 'rust-lang/rust.vim'
 " comment
 Plug 'tpope/vim-commentary'
 
+" git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " deoplete
