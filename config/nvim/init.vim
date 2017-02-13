@@ -83,3 +83,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|.git'
 let mapleader = ','
 map <leader>d :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
+
+" enable line numbers
+set number
