@@ -86,3 +86,16 @@ map <leader>f :NERDTreeFind<CR>
 
 " enable line numbers
 set number
+
+" show trailing whitespace
+set list
+set listchars=tab:▸\ ,trail:.
+
+" strip trailing whitespace on save
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
