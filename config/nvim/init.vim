@@ -34,6 +34,7 @@ Plug 'tpope/vim-fugitive'
 " javascript
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -81,8 +82,11 @@ set expandtab
 let g:ctrlp_custom_ignore = 'node_modules\|.git'
 
 let mapleader = ','
+
+" NerdTree
 map <leader>d :NERDTreeToggle<CR>
 map <leader>f :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " enable line numbers
 set number
