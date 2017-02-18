@@ -36,6 +36,10 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'editorconfig/editorconfig-vim'
 
+" python
+Plug 'vim-scripts/indentpython.vim'
+Plug 'neomake/neomake'
+
 call plug#end()
 
 " deoplete
@@ -103,3 +107,18 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" python indentation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+    \ set colorcolumn=80 |
+
+" neomake
+let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'vulture']
+autocmd! BufReadPost,BufWritePost * Neomake
