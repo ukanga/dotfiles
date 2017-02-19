@@ -39,6 +39,7 @@ Plug 'editorconfig/editorconfig-vim'
 " python
 Plug 'vim-scripts/indentpython.vim'
 Plug 'neomake/neomake'
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 
