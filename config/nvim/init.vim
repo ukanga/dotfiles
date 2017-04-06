@@ -40,6 +40,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'neomake/neomake'
 Plug 'zchee/deoplete-jedi'
+Plug 'mindriot101/vim-yapf'
+Plug 'fisadev/vim-isort'
 
 call plug#end()
 
@@ -121,5 +123,7 @@ au BufNewFile,BufRead *.py
     \ set colorcolumn=80 |
 
 " neomake
-let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'vulture']
+let g:neomake_python_enabled_makers = ['flake8', 'pep8'] " , 'vulture']
 autocmd! BufReadPost,BufWritePost * Neomake
+
+:nnoremap <leader>y :Yapf<cr>
