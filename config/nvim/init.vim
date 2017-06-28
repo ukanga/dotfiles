@@ -43,6 +43,9 @@ Plug 'zchee/deoplete-jedi'
 Plug 'mindriot101/vim-yapf'
 Plug 'fisadev/vim-isort'
 
+" latex
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 " deoplete
