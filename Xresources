@@ -48,4 +48,5 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-#include ".config/base16-xresources/xresources/base16-oceanicnext-256.Xresources"
+!#include ".config/base16-xresources/xresources/base16-oceanicnext-256.Xresources"
+#include "~/gruvbox-urxvt256.xresources"

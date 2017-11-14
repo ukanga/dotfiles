@@ -1,6 +1,7 @@
 call plug#begin()
 
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 
 " autocompletion plugins
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -49,7 +50,7 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 " deoplete
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
@@ -70,10 +71,10 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:SuperTabClosePreviewOnPopupClose = 1
 
 " base16 colourscheme
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+"if filereadable(expand("~/.vimrc_background"))
+"  let base16colorspace=256
+"  source ~/.vimrc_background
+"endif
 
 " allow background image to be shown
 hi Normal ctermbg=None ctermfg=None
@@ -126,7 +127,18 @@ au BufNewFile,BufRead *.py
     \ set colorcolumn=80 |
 
 " neomake
-let g:neomake_python_enabled_makers = ['flake8', 'pep8'] " , 'vulture']
+let g:neomake_python_enabled_makers = ['flake8', 'pep8', 'pylint'] " , 'vulture']
 autocmd! BufReadPost,BufWritePost * Neomake
 
 :nnoremap <leader>y :Yapf<cr>
+
+let g:python_host_prog = '/home/ukanga/.virtualenvs/neovim2/bin/python'
+let g:python3_host_prog = '/home/ukanga/.virtualenvs/neovim3/bin/python'
+
+" remember line position
+" if has("autocmd")
+"   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" endif
+set termguicolors
+set bg=dark
+colorscheme gruvbox
